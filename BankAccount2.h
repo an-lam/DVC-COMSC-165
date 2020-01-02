@@ -7,6 +7,7 @@ class BankAccount
     private:
 	//protected:
          int         m_id ;
+		 //int         my_id;
 		
 	protected:
          double      m_balance;
@@ -22,7 +23,7 @@ class BankAccount
 		void     print() const;
 		//~BankAccount();   // destructor
 		
-	friend class Checking;
+	friend class Checking;  // can access private data members
 };
 
 class SavingAccount : public BankAccount

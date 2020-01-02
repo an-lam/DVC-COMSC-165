@@ -14,7 +14,7 @@ BankAccount::BankAccount(double initialBalance)
     m_balance = initialBalance ;
 }
 
-bool      BankAccount::deposit(double amount)
+bool  BankAccount::deposit(double amount)
 {
     m_balance += amount ;
     return true ;

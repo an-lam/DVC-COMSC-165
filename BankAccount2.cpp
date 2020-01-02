@@ -1,15 +1,16 @@
 #include <iostream>
-#include "BankAccount2.h"
 using namespace std;
+#include "BankAccount2.h"
 
 BankAccount::BankAccount()
 {
     m_balance = 0;
+	cout << "In BankAccount default constructor. \n";
 }
 
 BankAccount::BankAccount(double initialBalance)
 {
-    m_balance = initialBalance ;
+    m_balance = initialBalance;
 }
 
 void BankAccount::setID(int id)
@@ -48,10 +49,10 @@ void     BankAccount::print() const
 }
 
 // Note: must call super class constructor in the initializer list
-SavingAccount::SavingAccount(double initialBalance, int year, double rate) :
-   BankAccount(initialBalance)
+SavingAccount::SavingAccount(double initialBalance, int year, double rate) // :
+//   BankAccount(initialBalance)
 {
-   // BankAccount(initialBalance);   doesn't work
+   BankAccount::BankAccount(initialBalance);
    m_year_opened = year;
    m_interest_rate = rate;
 }
@@ -61,7 +62,7 @@ void     SavingAccount::print() const
 	// NOTE: all methods that are called here must also be "const".
 	// Otherwise, compiler complains.
 	//cout << BankAccount::m_id << endl; //compiling error if m_id is private
-    cout << BankAccount::getID() << endl;
+    cout << "ID: " << BankAccount::getID() << endl;
 	BankAccount::print();
 	cout << " Year opened: " << m_year_opened << "\t interest rate: "
             	<< m_interest_rate << endl;
